@@ -7,6 +7,11 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import TaggingAlongQuickMessages from '../components/TaggingAlongQuickMessages';
 
 export default function StudyPost({data, user}) {
+  const [tagAlong, setTagAlong] = useState(false);
+
+  const onPressTagAlong = () => {
+    setTagAlong(true);
+  };
   return (
     <View>
       <View style={styles.container}>
@@ -27,12 +32,16 @@ export default function StudyPost({data, user}) {
           </View>
         </View>
         <View style={styles.locationContainer}>
-          <MaterialIcon name="location-on" size={22} color={'#334963'} />
+          <MaterialIcon name="location-on" size={16} color={'#334963'} />
           <TouchableOpacity>
             <Text style={styles.address}>{data.address}</Text>
           </TouchableOpacity>
         </View>
-        <ReactionsTab eventType={data.eventType} data={data} />
+        <ReactionsTab
+          eventType={data.eventType}
+          data={data}
+          onPressTagAlong={onPressTagAlong}
+        />
       </View>
       <View style={styles.timeContainer}>
         <Moment
@@ -58,6 +67,8 @@ export default function StudyPost({data, user}) {
           </Text>
         </TouchableOpacity>
       ) : null}
+
+      {tagAlong ? <TaggingAlongQuickMessages /> : null}
     </View>
   );
 }
@@ -70,7 +81,7 @@ const styles = StyleSheet.create({
     padding: 12,
     paddingBottom: 6,
     marginHorizontal: 12,
-    marginTop: 22,
+    marginTop: 30,
   },
   profileImage: {
     height: 40,
@@ -93,30 +104,26 @@ const styles = StyleSheet.create({
     color: '#999999',
   },
   postContainer: {
-    marginTop: 20,
+    marginTop: 14,
   },
 
   post: {
-    fontSize: 18,
+    fontSize: 16,
     color: '#302d2d',
     fontWeight: '500',
   },
   timeContainer: {
     position: 'absolute',
-    right: 20,
-    top: 6,
-    height: 34,
-    paddingHorizontal: 7,
-    borderRadius: 10,
-    backgroundColor: '#334963',
-    alignItems: 'center',
+    right: 24,
+    top: 34,
+    borderBottomWidth: 1,
+    borderBottomColor: '#334963',
     justifyContent: 'center',
-    top: 28,
   },
   time: {
     fontSize: 18,
-    fontWeight: '700',
-    color: '#d5dde6',
+    fontWeight: '500',
+    color: '#334963',
   },
   taggerImage1: {
     height: 24,
@@ -142,11 +149,11 @@ const styles = StyleSheet.create({
   locationContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 12,
+    marginTop: 20,
   },
   address: {
     color: '#334963',
     textDecorationLine: 'underline',
-    fontSize: 12,
+    fontSize: 10,
   },
 });

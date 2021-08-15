@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 
 const messagaes = [
   {message: 'Can I bring anything?', emoji: '🛒'},
@@ -17,10 +17,10 @@ export default function TaggingAlongQuickMessages() {
         data={messagaes}
         keyExtractor={item => item.message}
         renderItem={({item}) => (
-          <View style={styles.messageBubble}>
+          <TouchableOpacity style={styles.messageBubble}>
             <Text style={styles.message}>{item.message}</Text>
             <Text style={styles.message}>{item.emoji}</Text>
-          </View>
+          </TouchableOpacity>
         )}
       />
     </View>
@@ -29,7 +29,7 @@ export default function TaggingAlongQuickMessages() {
 
 const styles = StyleSheet.create({
   messageBubble: {
-    height: 20,
+    height: 24,
     borderRadius: 10,
     backgroundColor: '#334963',
     flexDirection: 'row',
@@ -41,13 +41,14 @@ const styles = StyleSheet.create({
   },
   container: {
     padding: 1,
-    marginTop: 8,
+    marginTop: 12,
     marginLeft: 10,
     marginRight: 4,
   },
   message: {
-    color: '#d5dde6',
+    color: '#f5faff',
     fontSize: 10,
     marginRight: 2,
+    fontWeight: '600',
   },
 });

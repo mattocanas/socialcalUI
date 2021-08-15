@@ -1,25 +1,17 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import ReactionsTab from '../components/ReactionsTab';
 import Moment from 'react-moment';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import ReactionsTab from './ReactionsTab';
-import TaggingAlongQuickMessages from './TaggingAlongQuickMessages';
+import TaggingAlongQuickMessages from '../components/TaggingAlongQuickMessages';
 
-export default function FitnessPost({data, user}) {
+export default function PartyPost({data, user}) {
   const [tagAlong, setTagAlong] = useState(false);
 
   const onPressTagAlong = () => {
     setTagAlong(true);
   };
-
   return (
     <View>
       <View style={styles.container}>
@@ -47,6 +39,7 @@ export default function FitnessPost({data, user}) {
         </View>
         <ReactionsTab
           eventType={data.eventType}
+          data={data}
           onPressTagAlong={onPressTagAlong}
         />
       </View>
@@ -58,21 +51,23 @@ export default function FitnessPost({data, user}) {
           style={styles.time}
         />
       </View>
+      {data.taggers[0] ? (
+        <TouchableOpacity style={styles.taggersContainer}>
+          <Image
+            source={{uri: data.taggers[0].photo}}
+            style={styles.taggerImage1}
+          />
+          <Image
+            source={{uri: data.taggers[1].photo}}
+            style={styles.taggerImage2}
+          />
+          <Text style={styles.taggerText}>
+            {data.taggers[1].username} and {data.taggers.length - 1} others are
+            tagging along
+          </Text>
+        </TouchableOpacity>
+      ) : null}
 
-      <TouchableOpacity style={styles.taggersContainer}>
-        <Image
-          source={{uri: data.taggers[0].photo}}
-          style={styles.taggerImage1}
-        />
-        <Image
-          source={{uri: data.taggers[1].photo}}
-          style={styles.taggerImage2}
-        />
-        <Text style={styles.taggerText}>
-          {data.taggers[1].username} and {data.taggers.length - 1} others are
-          tagging along
-        </Text>
-      </TouchableOpacity>
       {tagAlong ? <TaggingAlongQuickMessages /> : null}
     </View>
   );
@@ -113,7 +108,7 @@ const styles = StyleSheet.create({
   },
 
   post: {
-    fontSize: 17,
+    fontSize: 16,
     color: '#302d2d',
     fontWeight: '500',
   },
