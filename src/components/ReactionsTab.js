@@ -11,13 +11,7 @@ import Foundation from 'react-native-vector-icons/Foundation';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import TaggingAlongQuickMessages from './TaggingAlongQuickMessages';
 
-export default function ReactionsTab({eventType, data}) {
-  const [tagAlong, setTagAlong] = useState(false);
-
-  const onPressTagAlong = () => {
-    setTagAlong(true);
-  };
-
+export default function ReactionsTab({eventType, data, onPressTagAlong}) {
   return (
     <View style={styles.container}>
       <View style={styles.likes}>
@@ -47,16 +41,10 @@ export default function ReactionsTab({eventType, data}) {
         </View>
       )}
 
-      {tagAlong ? (
-        <View style={{marginLeft: 60}}>
-          <TaggingAlongQuickMessages />
-        </View>
-      ) : (
-        <TouchableOpacity style={styles.tagAlong} onPress={onPressTagAlong}>
-          <Ionicon name="pricetag" color={'#52749c'} size={18} />
-          <Text style={styles.reactionNumber}>Tag along?</Text>
-        </TouchableOpacity>
-      )}
+      <TouchableOpacity style={styles.tagAlong} onPress={onPressTagAlong}>
+        <Ionicon name="pricetag" color={'#52749c'} size={18} />
+        <Text style={styles.reactionNumber}>Tag along?</Text>
+      </TouchableOpacity>
     </View>
   );
 }

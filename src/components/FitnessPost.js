@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -11,8 +11,15 @@ import Moment from 'react-moment';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import ReactionsTab from './ReactionsTab';
+import TaggingAlongQuickMessages from './TaggingAlongQuickMessages';
 
 export default function FitnessPost({data, user}) {
+  const [tagAlong, setTagAlong] = useState(false);
+
+  const onPressTagAlong = () => {
+    setTagAlong(true);
+  };
+
   return (
     <View>
       <View style={styles.container}>
@@ -38,7 +45,10 @@ export default function FitnessPost({data, user}) {
             <Text style={styles.address}>{data.address}</Text>
           </TouchableOpacity>
         </View>
-        <ReactionsTab eventType={data.eventType} />
+        <ReactionsTab
+          eventType={data.eventType}
+          onPressTagAlong={onPressTagAlong}
+        />
       </View>
       <View style={styles.timeContainer}>
         <Moment
@@ -48,6 +58,8 @@ export default function FitnessPost({data, user}) {
           style={styles.time}
         />
       </View>
+      {tagAlong ? <TaggingAlongQuickMessages /> : null}
+
       <TouchableOpacity style={styles.taggersContainer}>
         <Image
           source={{uri: data.taggers[0].photo}}
