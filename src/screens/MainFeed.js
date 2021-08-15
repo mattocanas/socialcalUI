@@ -3,8 +3,7 @@ import {View, Text, StyleSheet, SafeAreaView, FlatList} from 'react-native';
 import Moment from 'react-moment';
 import dummyEventData from '../../assets/dummyEventData';
 import FitnessPost from '../components/FitnessPost';
-import ReactionsTab from '../components/ReactionsTab';
-
+import StudyPost from '../components/StudyPost';
 export default function MainFeed() {
   const currentTime = new Date().getHours();
 
@@ -33,11 +32,15 @@ export default function MainFeed() {
         keyExtractor={item => item.postId}
         renderItem={({item}) => (
           <View>
+            {/* // 9 AM Fitness Posts */}
             {item.time.getHours() == 9 && item.eventType === 'Fitness' ? (
-              <View>
-                <FitnessPost user={item.user} data={item} />
-                <ReactionsTab eventType={item.eventType} />
-              </View>
+              <FitnessPost user={item.user} data={item} />
+            ) : null}
+
+            {/* // 5 PM Study Posts */}
+
+            {item.time.getHours() == 17 && item.eventType === 'Study' ? (
+              <StudyPost user={item.user} data={item} />
             ) : null}
           </View>
         )}
@@ -70,7 +73,6 @@ const styles = StyleSheet.create({
     padding: 0,
   },
   flatlist: {
-    marginTop: 20,
     alignSelf: 'flex-start',
     width: '100%',
   },
