@@ -6,8 +6,8 @@ import TopCalendar from './src/components/TopCalendar';
 export default function App() {
   return (
     <>
-      {/* <MainFeed /> */}
-      <TopCalendar />
+      <MainFeed />
+      {/* <TopCalendar /> */}
     </>
   );
 }

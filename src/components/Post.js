@@ -6,7 +6,7 @@ import IonIcon from 'react-native-vector-icons/Ionicons';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import TaggingAlongQuickMessages from '../components/TaggingAlongQuickMessages';
 
-export default function ClassPost({data, user}) {
+export default function Post({data, user}) {
   const [tagAlong, setTagAlong] = useState(false);
 
   const onPressTagAlong = () => {
@@ -26,12 +26,15 @@ export default function ClassPost({data, user}) {
         </View>
 
         <View style={styles.postContainer}>
-          <Text style={styles.post}>{data.description}</Text>
-          {data.exam ? (
-            <View style={styles.examBubble}>
-              <Text style={styles.examText}>Exam today</Text>
-            </View>
-          ) : null}
+          <View>
+            {/* <Text style={styles.postUsername}>{user.username}</Text> */}
+            <Text style={styles.post}>{data.description}</Text>
+            {data.eventType == 'Class' && data.exam ? (
+              <View style={styles.examBubble}>
+                <Text style={styles.examText}>Exam today</Text>
+              </View>
+            ) : null}
+          </View>
         </View>
         <View style={styles.locationContainer}>
           <MaterialIcon name="location-on" size={16} color={'#334963'} />
