@@ -27,8 +27,10 @@ export default function Post({data, user}) {
 
         <View style={styles.postContainer}>
           <View>
-            {/* <Text style={styles.postUsername}>{user.username}</Text> */}
             <Text style={styles.post}>{data.description}</Text>
+            {data.photo ? (
+              <Image source={{uri: data.photo}} style={styles.postPhoto} />
+            ) : null}
             {data.eventType == 'Class' && data.exam ? (
               <View style={styles.examBubble}>
                 <Text style={styles.examText}>Exam today</Text>
@@ -86,7 +88,7 @@ const styles = StyleSheet.create({
     padding: 12,
     paddingBottom: 6,
     marginHorizontal: 12,
-    marginTop: 30,
+    marginTop: 48,
   },
   profileImage: {
     height: 40,
@@ -120,7 +122,7 @@ const styles = StyleSheet.create({
   timeContainer: {
     position: 'absolute',
     right: 24,
-    top: 34,
+    top: 56,
     borderBottomWidth: 1,
     borderBottomColor: '#334963',
     justifyContent: 'center',
@@ -173,5 +175,12 @@ const styles = StyleSheet.create({
   },
   examText: {
     color: '#f5faff',
+  },
+  postPhoto: {
+    height: 170,
+    width: 320,
+    borderRadius: 10,
+    marginTop: 10,
+    alignSelf: 'center',
   },
 });

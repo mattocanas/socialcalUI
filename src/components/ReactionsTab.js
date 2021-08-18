@@ -13,22 +13,36 @@ import TaggingAlongQuickMessages from './TaggingAlongQuickMessages';
 
 export default function ReactionsTab({eventType, data, onPressTagAlong}) {
   const [tagAlong, setTagAlong] = useState(false);
+  const [liked, setLiked] = useState(false);
 
   onPressTag = () => {
     onPressTagAlong();
     setTagAlong(true);
   };
 
+  onPressLike = () => {
+    setLiked(!liked);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.likes}>
-        <TouchableOpacity style={styles.likeCircle}>
-          <Ionicon
-            name="md-heart"
-            color={'#9c4e5d'}
-            size={16}
-            style={{marginLeft: 0.5, marginTop: 0.5}}
-          />
+        <TouchableOpacity style={styles.likeCircle} onPress={onPressLike}>
+          {liked ? (
+            <Ionicon
+              name="md-heart"
+              color={'#9c4e5d'}
+              size={16}
+              style={{marginLeft: 0.5, marginTop: 0.5}}
+            />
+          ) : (
+            <Ionicon
+              name="md-heart-outline"
+              color={'#9c4e5d'}
+              size={16}
+              style={{marginLeft: 0.5, marginTop: 0.5}}
+            />
+          )}
         </TouchableOpacity>
         <Text style={styles.reactionNumber}>20</Text>
       </View>

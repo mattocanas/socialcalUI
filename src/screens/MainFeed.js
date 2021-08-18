@@ -5,8 +5,9 @@ import dummyEventData from '../../assets/dummyEventData';
 
 import Post from '../components/Post';
 import TopCalendar from '../components/TopCalendar';
+import NoPosts from '../components/NoPosts';
 export default function MainFeed() {
-  const currentHour = new Date().getH;
+  const currentHour = new Date().getHours();
   const [date, setDate] = useState(new Date().toDateString());
 
   const data = dummyEventData.filter(
@@ -16,10 +17,6 @@ export default function MainFeed() {
   const updateDate = newDate => {
     setDate(newDate);
   };
-
-  useEffect(() => {
-    console.log(dummyEventData[3].time.toDateString());
-  }, [date]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -34,144 +31,148 @@ export default function MainFeed() {
           {' '}
           {currentHour < 12
             ? '⛅️'
-            : currentHour > 12 && currentHour < 18
+            : currentHour > 12 && currentHour < 19
             ? '☀️'
             : '🪐'}
         </Text>
         <TopCalendar updateDate={updateDate} />
       </View>
 
-      <FlatList
-        style={styles.flatlist}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{paddingBottom: 10, marginTop: -26}}
-        data={data.sort(function (a, b) {
-          return new Date(a.time) - new Date(b.time);
-        })}
-        keyExtractor={item => item.postId}
-        renderItem={({item}) => (
-          <View>
-            {/* // 12 AM Work Posts */}
-            {item.time.getHours() == 24 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
-            {/* // 1 AM Work Posts */}
-            {item.time.getHours() == 1 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
-            {/* // 2 AM Work Posts */}
-            {item.time.getHours() == 2 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
-            {/* // 3 AM Work Posts */}
-            {item.time.getHours() == 3 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
-            {/* // 4 AM Work Posts */}
-            {item.time.getHours() == 4 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
-            {/* // 5 AM Work Posts */}
-            {item.time.getHours() == 5 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
-            {/* // 6 AM Work Posts */}
-            {item.time.getHours() == 6 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
-            {/* // 7 AM Work Posts */}
-            {item.time.getHours() == 7 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
-            {/* // 8 AM Work Posts */}
-            {item.time.getHours() == 8 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
+      {data[0] ? (
+        <FlatList
+          style={styles.flatlist}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{paddingBottom: 10, marginTop: -26}}
+          data={data.sort(function (a, b) {
+            return new Date(a.time) - new Date(b.time);
+          })}
+          keyExtractor={item => item.postId}
+          renderItem={({item}) => (
+            <View>
+              {/* // 12 AM Work Posts */}
+              {item.time.getHours() == 24 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
+              {/* // 1 AM Work Posts */}
+              {item.time.getHours() == 1 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
+              {/* // 2 AM Work Posts */}
+              {item.time.getHours() == 2 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
+              {/* // 3 AM Work Posts */}
+              {item.time.getHours() == 3 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
+              {/* // 4 AM Work Posts */}
+              {item.time.getHours() == 4 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
+              {/* // 5 AM Work Posts */}
+              {item.time.getHours() == 5 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
+              {/* // 6 AM Work Posts */}
+              {item.time.getHours() == 6 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
+              {/* // 7 AM Work Posts */}
+              {item.time.getHours() == 7 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
+              {/* // 8 AM Work Posts */}
+              {item.time.getHours() == 8 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
 
-            {/* // 9 AM Fitness Posts */}
-            {item.time.getHours() == 9 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
-            {/* // 10 AM Work Posts */}
-            {item.time.getHours() == 10 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
-            {/* // 11 AM Work Posts */}
-            {item.time.getHours() == 11 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
+              {/* // 9 AM Fitness Posts */}
+              {item.time.getHours() == 9 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
+              {/* // 10 AM Work Posts */}
+              {item.time.getHours() == 10 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
+              {/* // 11 AM Work Posts */}
+              {item.time.getHours() == 11 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
 
-            {/* // 12 PM Study Posts */}
+              {/* // 12 PM Study Posts */}
 
-            {item.time.getHours() == 12 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
+              {item.time.getHours() == 12 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
 
-            {/* // 1 PM Study Posts */}
+              {/* // 1 PM Study Posts */}
 
-            {item.time.getHours() == 13 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
+              {item.time.getHours() == 13 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
 
-            {/* // 2 PM Study Posts */}
+              {/* // 2 PM Study Posts */}
 
-            {item.time.getHours() == 14 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
+              {item.time.getHours() == 14 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
 
-            {/* // 3 PM Study Posts */}
+              {/* // 3 PM Study Posts */}
 
-            {item.time.getHours() == 15 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
-            {/* // 4 PM Study Posts */}
+              {item.time.getHours() == 15 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
+              {/* // 4 PM Study Posts */}
 
-            {item.time.getHours() == 16 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
+              {item.time.getHours() == 16 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
 
-            {/* // 5 PM Study Posts */}
+              {/* // 5 PM Study Posts */}
 
-            {item.time.getHours() == 17 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
+              {item.time.getHours() == 17 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
 
-            {/* // 6 PM Study Posts */}
+              {/* // 6 PM Study Posts */}
 
-            {item.time.getHours() == 18 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
+              {item.time.getHours() == 18 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
 
-            {/* // 7 PM Study Posts */}
+              {/* // 7 PM Study Posts */}
 
-            {item.time.getHours() == 19 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
+              {item.time.getHours() == 19 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
 
-            {/* //Party at 8 PM */}
-            {item.time.getHours() == 20 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
+              {/* //Party at 8 PM */}
+              {item.time.getHours() == 20 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
 
-            {/* //Meal at 9 PM */}
-            {item.time.getHours() == 21 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
+              {/* //Meal at 9 PM */}
+              {item.time.getHours() == 21 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
 
-            {/* // 10 PM Study Posts */}
+              {/* // 10 PM Study Posts */}
 
-            {item.time.getHours() == 22 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
+              {item.time.getHours() == 22 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
 
-            {/* // 11 PM Study Posts */}
+              {/* // 11 PM Study Posts */}
 
-            {item.time.getHours() == 23 ? (
-              <Post user={item.user} data={item} />
-            ) : null}
-          </View>
-        )}
-      />
+              {item.time.getHours() == 23 ? (
+                <Post user={item.user} data={item} />
+              ) : null}
+            </View>
+          )}
+        />
+      ) : (
+        <NoPosts />
+      )}
     </SafeAreaView>
   );
 }

@@ -12,7 +12,7 @@ export default [
     eventType: 'Fitness',
     description: 'Going to the gym!',
     address: '416 Cincinnati Ave',
-    time: new Date('August 12, 2021 09:00:00'),
+    time: new Date('August 18, 2021 09:00:00'),
     likes: [
       {
         likeId: 1,
@@ -59,7 +59,13 @@ export default [
       },
     ],
     muscles: [],
-    photo: '',
+    photo:
+      'https://lh3.googleusercontent.com/proxy/tEetS6P75drK30jvxDnQFt_r9r1pm8q2_7w0JuaCKQC4q8zljCAcIPObW7Hzjbs081N1cBxgYTbMWjFJRqXTr82K0n1G7pK-YoAGqjzg9fCzPmESA6HWi6udBFzI2DA0LfwVKeyXH64lLAZY5LIVatos3qiW2bfflZbuU-zvfyk9E8U',
+    updates: [
+      {
+        id: 1,
+      },
+    ],
   },
   {
     postId: 2,
@@ -75,7 +81,7 @@ export default [
     eventType: 'Class',
     description: 'Thermodynamics class 🔥',
     address: 'ETC',
-    time: new Date('12 August 2021 13:00:00'),
+    time: new Date('18 August 2021 13:00:00'),
     likes: [],
     comments: [],
     taggers: [],
@@ -96,7 +102,7 @@ export default [
     },
     eventType: 'Study',
     description: 'Study session for thermo exam tm!',
-    time: new Date('12 August 2021 17:00:00'),
+    time: new Date('18 August 2021 17:00:00'),
     likes: [],
     comments: [],
     taggers: [
@@ -135,7 +141,7 @@ export default [
     eventType: 'Party',
     description: 'Party at my place!',
     address: '714 22nd St',
-    time: new Date('16 August 2021 21:30:00 '),
+    time: new Date('18 August 2021 21:30:00'),
     likes: [],
     comments: [],
     taggers: [],
@@ -157,7 +163,7 @@ export default [
     eventType: 'FoodDrink',
     description: 'Lunch at Dons!',
     address: 'Dons Japanese Truck',
-    time: new Date('17 August 2021 12:30:00'),
+    time: new Date('18 August 2021 12:30:00'),
     likes: [],
     comments: [],
     taggers: [],
@@ -178,7 +184,7 @@ export default [
     eventType: 'Work',
     description: 'Meeting :/',
     address: '100 Main St.',
-    time: new Date('16 August 2021 8:30:00'),
+    time: new Date('18 August 2021 8:30:00'),
     likes: [],
     comments: [],
     taggers: [],
