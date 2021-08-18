@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import CalendarStrip from 'react-native-calendar-strip';
 
-export default function TopCalendar() {
+export default function TopCalendar({updateDate}) {
   const [date, setDate] = useState(new Date());
 
   return (
@@ -20,7 +20,9 @@ export default function TopCalendar() {
         color: '#f5faff',
       }}
       highlightDateNameStyle={{color: '#334963'}}
-      onDateSelected={selectedDate => console.log(selectedDate)}
+      onDateSelected={selectedDate =>
+        updateDate(selectedDate.toLocaleString().slice(0, 15))
+      }
       style={{
         width: '100%',
         marginTop: 30,
