@@ -7,9 +7,9 @@ import PostFocus from './src/screens/PostFocus';
 export default function App() {
   return (
     <>
-      {/* <MainFeed /> */}
+      <MainFeed />
       {/* <TopCalendar /> */}
-      <PostFocus />
+      {/* <PostFocus /> */}
     </>
   );
 }

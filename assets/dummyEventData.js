@@ -58,12 +58,26 @@ export default [
         photo: 'https://i.ytimg.com/vi/M6YzhZw1GMo/maxresdefault.jpg',
       },
     ],
-    muscles: [],
+    reactions: [],
     photo:
       'https://lh3.googleusercontent.com/proxy/tEetS6P75drK30jvxDnQFt_r9r1pm8q2_7w0JuaCKQC4q8zljCAcIPObW7Hzjbs081N1cBxgYTbMWjFJRqXTr82K0n1G7pK-YoAGqjzg9fCzPmESA6HWi6udBFzI2DA0LfwVKeyXH64lLAZY5LIVatos3qiW2bfflZbuU-zvfyk9E8U',
     updates: [
       {
         id: 1,
+        description: 'Burned 600 Calories!',
+        photo:
+          'https://images.8tracks.com/cover/i/010/278/301/54b5c54af64b0d69d8d7a9f740ff0492-9578.jpg?rect=376,0,1064,1064&q=98&fm=jpg&fit=max&w=1024&h=1024',
+        time: new Date('August 18, 2021 10:00:00'),
+        likes: [],
+        reactions: [],
+        user: {
+          id: 1,
+          username: 'matt',
+          name: 'Matt Ocanas',
+          city: 'Austin, TX',
+          photo:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjjabwwlfyXOKJ0TJHq37NAOrugsLRtUWGPg&usqp=CAU',
+        },
       },
     ],
   },
@@ -85,7 +99,7 @@ export default [
     likes: [],
     comments: [],
     taggers: [],
-    luck: [],
+    reactions: [],
     photo: '',
     exam: true,
   },
@@ -105,6 +119,7 @@ export default [
     time: new Date('18 August 2021 17:00:00'),
     likes: [],
     comments: [],
+    reactions: [],
     taggers: [
       {
         taggerId: 1,
@@ -144,6 +159,7 @@ export default [
     time: new Date('18 August 2021 21:30:00'),
     likes: [],
     comments: [],
+    reactions: [],
     taggers: [],
 
     photo: '',
@@ -165,6 +181,7 @@ export default [
     address: 'Dons Japanese Truck',
     time: new Date('18 August 2021 12:30:00'),
     likes: [],
+    reactions: [],
     comments: [],
     taggers: [],
 
@@ -186,6 +203,7 @@ export default [
     address: '100 Main St.',
     time: new Date('18 August 2021 8:30:00'),
     likes: [],
+    reactions: [],
     comments: [],
     taggers: [],
 
