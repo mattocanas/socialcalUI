@@ -6,6 +6,7 @@ export default [
       username: 'matt',
       name: 'Matt Ocanas',
       city: 'Austin, TX',
+      school: 'UT Austin',
       photo:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjjabwwlfyXOKJ0TJHq37NAOrugsLRtUWGPg&usqp=CAU',
     },
