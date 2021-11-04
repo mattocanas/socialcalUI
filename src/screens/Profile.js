@@ -1,8 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import data from '../../assets/dummyEventData';
+import ProfilePost from '../components/ProfilePost';
 
 const user = data[0].user;
+const dummyData = data[0];
 
 export default function Profile() {
   return (
@@ -31,6 +33,7 @@ export default function Profile() {
       <View style={styles.upcomingEventsContainer}>
         <Text style={styles.upcomingEvents}>Upcoming Events</Text>
         <View style={styles.underline} />
+        <ProfilePost />
       </View>
     </View>
   );
